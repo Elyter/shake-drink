@@ -7,6 +7,7 @@ import RecipeScreen from '../components/RecipeScreen';
 const Tab = createBottomTabNavigator();
 
 import NewCocktailScreen from '../components/NewCocktailScreen';
+import CommunityScreen from '../components/Community/CommunityScreen';
 
 export default function LoginNav() {
     return (
@@ -21,11 +22,11 @@ export default function LoginNav() {
                 }}
             />
             <Tab.Screen 
-                name="NewCocktail" 
-                component={NewCocktailScreen} 
+                name="Cocktail Community" 
+                component={CommunityScreen} 
                 options={{
                     tabBarIcon: ({ color, size }) => (
-                        <Ionicons name="add-circle" size={size} color={color} />
+                        <Ionicons name="business" size={size} color={color} />
                     ),
                 }}
             />

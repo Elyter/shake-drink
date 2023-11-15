@@ -10,7 +10,7 @@ const NewCocktailScreen = ({ navigation }) => {
         // Here you can add your logic to create a new cocktail recipe
         // using the name, ingredients, and instructions state variables
         // and then navigate to the screen where you can publish it
-        navigation.navigate('PublishCocktailScreen');
+        navigation.navigate('Community');
     };
 
     return (
