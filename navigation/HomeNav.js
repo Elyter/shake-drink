@@ -4,6 +4,7 @@ import RegisterScreen from "../components/Login/RegisterScreen";
 import CommunityScreen from '../components/Community/CommunityScreen';
 import HomeScreen from '../components/Home/HomeScreen';
 import SelectSoftScreen from '../components/Home/SelectSoftScreen';
+import ResultScreen from '../components/Home/ResultScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,10 +19,11 @@ export default function LoginNav() {
                 fontWeight: 'bold',
             }
       }}>
-        <Stack.Screen name="Home" component={HomeScreen} options={{
+        <Stack.Screen name="HomeScreen" component={HomeScreen} options={{
             headerShown: false
         }}/>
         <Stack.Screen name="SelectSoft" component={SelectSoftScreen}/>
+        <Stack.Screen name="Results" component={ResultScreen}/>
       </Stack.Navigator>
   );
 }

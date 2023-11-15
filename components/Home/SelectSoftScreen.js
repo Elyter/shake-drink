@@ -13,7 +13,7 @@ const SelectSoft = ({ navigation }) => {
   };
 
   const handleSearch = () => {
-    navigation.navigate('SearchResults', { selectedDrinks });
+    navigation.navigate('Results', { selectedDrinks });
   };
 
   return (
