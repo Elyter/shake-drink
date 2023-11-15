@@ -7,7 +7,7 @@ import SelectSoftScreen from '../components/Home/SelectSoftScreen';
 
 const Stack = createNativeStackNavigator();
 
-export default function CommunityNav() {
+export default function LoginNav() {
   return (
       <Stack.Navigator screenOptions={{
             headerStyle: {
@@ -18,7 +18,10 @@ export default function CommunityNav() {
                 fontWeight: 'bold',
             }
       }}>
-        <Stack.Screen name="Community" component={CommunityScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{
+            headerShown: false
+        }}/>
+        <Stack.Screen name="SelectSoft" component={SelectSoftScreen}/>
       </Stack.Navigator>
   );
 }
