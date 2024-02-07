@@ -1,0 +1,26 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Shake API",
+      "description": "API description in Markdown.",
+      "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "schemes": ["http", "https"],
+    "paths": {
+      "/ping": {
+        "get": {
+          "summary": "Ping the API",
+          "description": "This can be used to check if the API is up and running.",
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      }
+    }
+  }
+  
