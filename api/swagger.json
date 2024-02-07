@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
       "title": "Shake API",
-      "description": "API description in Markdown.",
+      "description": "API for drinks.",
       "version": "1.0.0"
     },
     "host": "localhost:3000",
@@ -13,6 +13,30 @@
         "get": {
           "summary": "Ping the API",
           "description": "This can be used to check if the API is up and running.",
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/alcools": {
+        "get": {
+          "summary": "Get all alcools",
+          "description": "This can be used to get all alcools.",
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/softs": {
+        "get": {
+          "summary": "Get all softs",
+          "description": "This can be used to get all softs.",
           "produces": ["application/json"],
           "responses": {
             "200": {

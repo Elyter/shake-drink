@@ -10,6 +10,10 @@ services:
       - /usr/src/app/node_modules # Remove this if you have pure JS dependencies
     ports:
       - "3000:3000"
+    networks:
+      - shake_network
+    depends_on:
+      - mysql-db
 
   # Service MySQL Database
   mysql-db:
@@ -22,6 +26,8 @@ services:
       MYSQL_DATABASE: db_name
       MYSQL_USER: db_user
       MYSQL_PASSWORD: db_password
+    networks:
+      - shake_network
 
   # Service PhpMyAdmin
   phpmyadmin:
@@ -32,3 +38,10 @@ services:
     environment:
       PMA_HOST: mysql-db
       MYSQL_ROOT_PASSWORD: root_password
+    depends_on:
+      - mysql-db
+    networks:
+      - shake_network
+
+networks:
+  shake_network:

@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import axios from 'axios';
 
 const SelectSoft = ({ navigation }) => {
   const [selectedDrinks, setSelectedDrinks] = useState([]);
+  const [softs, setSofts] = useState([]);
+
+  useEffect(() => {
+    fetchSofts();
+  }, []);
 
   const handleDrinkSelection = (drink) => {
     if (selectedDrinks.includes(drink)) {
@@ -16,54 +22,34 @@ const SelectSoft = ({ navigation }) => {
     navigation.navigate('Results', { selectedDrinks });
   };
 
+  const fetchSofts = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/softs');
+      setSofts(response.data);
+    } catch (error) {
+      if (error.response && error.response.status === 500) {
+        alert(error.response.data.message);
+      } else {
+        console.error('Error fetching softs:', error);
+      }
+    }
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Et en soft?</Text>
-      <TouchableOpacity
-        style={[
-          styles.drinkButton,
-          selectedDrinks.includes('vodka') && styles.selectedDrinkButton,
-        ]}
-        onPress={() => handleDrinkSelection('vodka')}
-      >
-        <Text style={styles.drinkButtonText}>Coca</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={[
-          styles.drinkButton,
-          selectedDrinks.includes('gin') && styles.selectedDrinkButton,
-        ]}
-        onPress={() => handleDrinkSelection('gin')}
-      >
-        <Text style={styles.drinkButtonText}>Orangina</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={[
-          styles.drinkButton,
-          selectedDrinks.includes('rum') && styles.selectedDrinkButton,
-        ]}
-        onPress={() => handleDrinkSelection('rum')}
-      >
-        <Text style={styles.drinkButtonText}>Jus de Pomme</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={[
-          styles.drinkButton,
-          selectedDrinks.includes('tequila') && styles.selectedDrinkButton,
-        ]}
-        onPress={() => handleDrinkSelection('tequila')}
-      >
-        <Text style={styles.drinkButtonText}>Jus d'orange</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={[
-          styles.drinkButton,
-          selectedDrinks.includes('whiskey') && styles.selectedDrinkButton,
-        ]}
-        onPress={() => handleDrinkSelection('whiskey')}
-      >
-        <Text style={styles.drinkButtonText}>Ta mère</Text>
-      </TouchableOpacity>
+      <Text style={styles.title}>T'as quoi sur la table ?</Text>
+      {softs.map((soft) => (
+        <TouchableOpacity
+          key={soft.id}
+          style={[
+            styles.drinkButton,
+            selectedDrinks.includes(soft.name.toLowerCase()) && styles.selectedDrinkButton,
+          ]}
+          onPress={() => handleDrinkSelection(soft.name.toLowerCase())}
+        >
+          <Text style={styles.drinkButtonText}>{soft.name}</Text>
+        </TouchableOpacity>
+      ))}
       <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
         <Text style={styles.searchButtonText}>Suivant</Text>
       </TouchableOpacity>
