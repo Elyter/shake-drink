@@ -30,22 +30,21 @@ const ResultScreen = () => {
   };
 
   const renderCocktail = ({ item, index }) => (
-    <TouchableOpacity onPress={() => handleCocktailPress(item.id)} style={{flex: 1, alignContent: "center", alignItems: "center"}}>
-      <View style={{ padding: 10, flexDirection: "row", alignItems: "center"}}>
-        <View style={{alignItems: "center", flex:1}}>
-        {item.community && <Text>Communauté</Text>}
-            <View style={{flexDirection: "row", alignItems: "center", marginBottom: 20}}>
-                <Text style={{fontSize: 40}}>🍸</Text>
-                <Text style={{ fontSize: 18, fontWeight: 'bold', color: "#3E6777" }}>{item.title}</Text>
-            </View>
-            <Text>{item.ingredients.join(', ')}</Text>
+    <TouchableOpacity onPress={() => handleCocktailPress(item.id)} style={{ flex: 1, alignContent: "center", alignItems: "center" , marginBottom: 15, width :"70%" }}>
+      <View style={{ padding: 10, flexDirection: "row", alignItems: "center", backgroundColor: "#FFF", borderRadius: 10, shadowColor: 'black', shadowOffset: { width: 0, height: 3 }, shadowOpacity: 0.2, shadowRadius: 3, elevation: 3 }}>
+        <View style={{ alignItems: "center", flex: 1 }}>
+          {item.community && <Text>Communauté</Text>}
+          <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 20 }}>
+            <Text style={{ fontSize: 40 }}>🍸</Text>
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: "#3E6777" }}>{item.title}</Text>
+          </View>
+          <Text>{item.ingredients.join(', ')}</Text>
         </View>
-        <View style={{width: 30, height: 30, borderRadius: 100, backgroundColor: "#ccc", justifyContent: "center", alignItems: "center"}}>
-          <Text style={{textAlign: "center"}}>145</Text>
+        <View style={{ width: 30, height: 30, borderRadius: 100, backgroundColor: "#ccc", justifyContent: "center", alignItems: "center" }}>
+          <Text style={{ textAlign: "center" }}>145</Text>
         </View>
       </View>
-      <View style={{ backgroundColor: "#DC7F66", height: 3, width: "80%", borderRadius: 10}}></View>
-    </TouchableOpacity>
+    </TouchableOpacity> 
   );
 
   return (
