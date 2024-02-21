@@ -32,12 +32,10 @@ const ResultScreen = () => {
   const windowWidth = Dimensions.get('window').width - 40;
 
   const renderCocktail = ({ item, index }) => (
-    <TouchableOpacity onPress={() => handleCocktailPress(item.id)} style={{ flex: 1, alignContent: "center", alignItems: "center" , marginBottom: 15, width: windowWidth, justifyContent: "center" }}>
+    <TouchableOpacity onPress={() => handleCocktailPress(item.id)} style={{ flex: 1, alignContent: "center", alignItems: "center" , marginTop: 15, width: windowWidth, justifyContent: "center" }}>
       <View style={{ padding: 10, flexDirection: "row", alignItems: "center", backgroundColor: "#FFF", borderRadius: 10, shadowColor: 'black', shadowOffset: { width: 0, height: 3 }, shadowOpacity: 0.2, shadowRadius: 3, elevation: 3 }}>
         <View style={{ alignItems: "center", flex: 1 }}>
-          {item.community && <Text>Communauté</Text>}
           <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 20 }}>
-            <Text style={{ fontSize: 40 }}>🍸</Text>
             <Text style={{ fontSize: 18, fontWeight: 'bold', color: "#3E6777" }}>{item.title}</Text>
           </View>
           <Text>{item.ingredients.join(', ')}</Text>
