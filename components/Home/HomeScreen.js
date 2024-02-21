@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import axios from 'axios';
 
 const HomeScreen = ({ navigation }) => {
-  const [selectedDrinks, setSelectedDrinks] = useState([]);
+  const [selectedAlcool, setSelectedAlcool] = useState([]);
   const [alcools, setAlcools] = useState([]);
 
 
@@ -12,15 +12,15 @@ const HomeScreen = ({ navigation }) => {
   }, []);
 
   const handleDrinkSelection = (drink) => {
-    if (selectedDrinks.includes(drink)) {
-      setSelectedDrinks(selectedDrinks.filter((d) => d !== drink));
+    if (selectedAlcool.includes(drink)) {
+      setSelectedAlcool(selectedAlcool.filter((d) => d !== drink));
     } else {
-      setSelectedDrinks([...selectedDrinks, drink]);
+      setSelectedAlcool([...selectedAlcool, drink]);
     }
   };
 
   const handleSearch = () => {
-    navigation.navigate('SelectSoft', { selectedDrinks });
+    navigation.navigate('SelectSoft', {alcools: selectedAlcool });
   };
 
   const fetchAlcools = async () => {
@@ -44,9 +44,9 @@ const HomeScreen = ({ navigation }) => {
           key={alcool.id}
           style={[
             styles.drinkButton,
-            selectedDrinks.includes(alcool.name.toLowerCase()) && styles.selectedDrinkButton,
+            selectedAlcool.includes(alcool.id) && styles.selectedDrinkButton,
           ]}
-          onPress={() => handleDrinkSelection(alcool.name.toLowerCase())}
+          onPress={() => handleDrinkSelection(alcool.id)}
         >
           <Text style={styles.drinkButtonText}>{alcool.name}</Text>
         </TouchableOpacity>

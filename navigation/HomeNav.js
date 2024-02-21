@@ -5,6 +5,7 @@ import CommunityScreen from '../components/Community/CommunityScreen';
 import HomeScreen from '../components/Home/HomeScreen';
 import SelectSoftScreen from '../components/Home/SelectSoftScreen';
 import ResultScreen from '../components/Home/ResultScreen';
+import CocktailDetails from '../components/CocktailDetails/CocktailDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,8 +23,15 @@ export default function LoginNav() {
         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{
             headerShown: false
         }}/>
-        <Stack.Screen name="SelectSoft" component={SelectSoftScreen}/>
-        <Stack.Screen name="Results" component={ResultScreen}/>
+        <Stack.Screen name="SelectSoft" component={SelectSoftScreen} options={{
+            headerShown: false
+        }}/>
+        <Stack.Screen name="Results" component={ResultScreen} options={{
+            headerShown: false
+        }}/>
+        <Stack.Screen name="CocktailDetails" component={CocktailDetails} options={{
+            headerShown: false
+        }}/>
       </Stack.Navigator>
   );
 }

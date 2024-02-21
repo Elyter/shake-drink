@@ -2,24 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import axios from 'axios';
 
-const SelectSoft = ({ navigation }) => {
-  const [selectedDrinks, setSelectedDrinks] = useState([]);
+const SelectSoft = ({ navigation, route }) => {
+  const [selectedSoft, setSelectedSoft] = useState([]);
   const [softs, setSofts] = useState([]);
 
   useEffect(() => {
     fetchSofts();
   }, []);
 
-  const handleDrinkSelection = (drink) => {
-    if (selectedDrinks.includes(drink)) {
-      setSelectedDrinks(selectedDrinks.filter((d) => d !== drink));
+  const handleSoftelection = (drink) => {
+    if (selectedSoft.includes(drink)) {
+      setSelectedSoft(selectedSoft.filter((d) => d !== drink));
     } else {
-      setSelectedDrinks([...selectedDrinks, drink]);
+      setSelectedSoft([...selectedSoft, drink]);
     }
   };
 
   const handleSearch = () => {
-    navigation.navigate('Results', { selectedDrinks });
+    navigation.navigate('Results', { softs: selectedSoft });
   };
 
   const fetchSofts = async () => {
@@ -38,14 +38,15 @@ const SelectSoft = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>T'as quoi sur la table ?</Text>
+      <Text style={styles.title}>{route.params.alcools}</Text>
       {softs.map((soft) => (
         <TouchableOpacity
           key={soft.id}
           style={[
             styles.drinkButton,
-            selectedDrinks.includes(soft.name.toLowerCase()) && styles.selectedDrinkButton,
+            selectedSoft.includes(soft.id) && styles.selectedDrinkButton,
           ]}
-          onPress={() => handleDrinkSelection(soft.name.toLowerCase())}
+          onPress={() => handleSoftelection(soft.id)}
         >
           <Text style={styles.drinkButtonText}>{soft.name}</Text>
         </TouchableOpacity>

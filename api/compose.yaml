@@ -34,7 +34,7 @@ services:
     image: phpmyadmin/phpmyadmin:latest
     container_name: phpmyadmin
     ports:
-      - "8081:80" # Port utilisé par PhpMyAdmin
+      - "8082:80" # Port utilisé par PhpMyAdmin
     environment:
       PMA_HOST: mysql-db
       MYSQL_ROOT_PASSWORD: root_password
