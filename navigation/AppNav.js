@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../components/Home/HomeScreen';
-import AccountScreen from '../components/AccountScreen';
+import AccountScreen from '../components/Account/AccountScreen';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import RecipeScreen from '../components/RecipeScreen';
 import HomeNav from './HomeNav';
@@ -10,6 +10,7 @@ const Tab = createBottomTabNavigator();
 
 import NewCocktailScreen from '../components/NewCocktailScreen';
 import CommunityScreen from '../components/Community/CommunityScreen';
+import AccountNav from './AccountNav';
 
 export default function LoginNav() {
     return (
@@ -49,7 +50,7 @@ export default function LoginNav() {
             />
             <Tab.Screen 
                 name="Compte" 
-                component={AccountScreen} 
+                component={AccountNav} 
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons name="person" size={size} color={color} />

@@ -28,6 +28,8 @@ services:
       MYSQL_PASSWORD: db_password
     networks:
       - shake_network
+    volumes:
+      - ./data/db:/var/lib/mysql
 
   # Service PhpMyAdmin
   phpmyadmin:

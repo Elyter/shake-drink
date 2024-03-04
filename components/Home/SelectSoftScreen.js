@@ -19,7 +19,8 @@ const SelectSoft = ({ navigation, route }) => {
   };
 
   const handleSearch = () => {
-    navigation.navigate('Results', { softs: selectedSoft });
+    var selection = selectedSoft.concat(route.params.alcools)
+    navigation.navigate('Results', { drinks: selection,});
   };
 
   const fetchSofts = async () => {
@@ -37,8 +38,7 @@ const SelectSoft = ({ navigation, route }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>T'as quoi sur la table ?</Text>
-      <Text style={styles.title}>{route.params.alcools}</Text>
+      <Text style={styles.title}>Quel soft sont sur la table ?</Text>
       {softs.map((soft) => (
         <TouchableOpacity
           key={soft.id}

@@ -38,7 +38,7 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>T'as quoi sur la table ?</Text>
+      <Text style={styles.title}>Alcool sur la table ?</Text>
       {alcools.map((alcool) => (
         <TouchableOpacity
           key={alcool.id}
