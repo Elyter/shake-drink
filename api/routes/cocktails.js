@@ -13,6 +13,7 @@ router.post('/cocktails', function(req, res) {
     FROM ingredients_cocktails
     WHERE id_drink IN (?)
     `;
+    
 
     sql.query(query, [requestedDrinks], (error, cocktails, fields) => {
         if (error) {

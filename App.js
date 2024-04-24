@@ -4,8 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
-import LoginNav from './navigation/LoginNav';
-import AppNav from './navigation/AppNav';
+import LoginNav from './navigators/LoginNav';
+import AppNav from './navigators/AppNav';
 
 const Stack = createNativeStackNavigator();
 
